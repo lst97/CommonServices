@@ -1,6 +1,7 @@
 import { Container } from "inversify";
 import { Logger } from "pino";
 import { ILogService, LogService, usePino } from "./services/LogService";
+import { ITokenService, ReactTokenService } from "./services/TokenService";
 
 /**
  * For the user to get the singleton instance of the services,
@@ -45,6 +46,13 @@ export class Containers {
   private buildServiceContainer() {
     if (!this.container.isBound(LogService)) {
       this.container.bind<ILogService>(LogService).toSelf().inSingletonScope();
+    }
+
+    if (!this.container.isBound(ReactTokenService)) {
+      this.container
+        .bind<ITokenService>(ReactTokenService)
+        .toSelf()
+        .inSingletonScope();
     }
   }
 

@@ -42,6 +42,12 @@ export interface ILogger {
  */
 export interface ILogService {
   Logger: any;
+  /**
+   * Sets the service name to be included in log messages.
+   *
+   * @param service - The name of the service.
+   * @throws Error if an empty or invalid service name is provided.
+   */
   setServiceName(service: string): void;
   error(message: string): void;
   info(message: string): void;
@@ -68,15 +74,9 @@ export class LogService implements ILogService {
   constructor() {
     this.logger = inversifyContainer().get<Logger<never>>("Logger");
 
-    this.serviceName = "@lst97/CommonServices.LogService";
+    this.serviceName = "@lst97/common-services:LogService";
   }
 
-  /**
-   * Sets the service name to be included in log messages.
-   *
-   * @param service - The name of the service.
-   * @throws Error if an empty or invalid service name is provided.
-   */
   public setServiceName(service: string): void {
     if (service && service.trim() !== "") {
       this.serviceName = service;

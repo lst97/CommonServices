@@ -1,6 +1,6 @@
 {
   "name": "@lst97/common-services",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.7",
   "description": "This is a DEVELOPMENT package, not for production use. Some common services that may use in different projects. DRY :)",
   "main": "lib/cjs/index.js",
   "types": "lib/esm/index.d.ts",
@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "pino": "^8.20.0",
-    "pino-pretty": "^11.0.0"
+    "pino-pretty": "^11.0.0",
+    "inversify": "^6.0.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -28,7 +29,6 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.2"
   }
 }
